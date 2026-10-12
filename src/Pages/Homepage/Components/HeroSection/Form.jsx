@@ -76,7 +76,7 @@ const Form = () => {
     className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"
   />
 </div>
-<div className=" lg:my-5 mx-2 ">
+<div className=" lg:my-5 mx-3 ">
   <button type="button" onClick={handleSubmit(onSubmit)} className="text-center border border-blue-400 bg-[#0693CB] h-15 lg:w-90 sm:w-70 text-white font-bold p-2 rounded-2xl">GET INSTANT QUOTE</button>
 </div>
 <div>
