@@ -80,9 +80,9 @@ const Form = () => {
   <button type="button" onClick={handleSubmit(onSubmit)} className="text-center border border-blue-400 bg-[#0693CB] h-15 lg:w-90 sm:w-70 text-white font-bold p-2 rounded-2xl">GET INSTANT QUOTE</button>
 </div>
 <div>
-  <p className="text-center text-gray-500">✔ 100% Secure
+  <p className="text-center text-gray-500"> ✔ 100% Secure.
 
-✔No Hidden Charges 
+✔No Hidden Charges. 
 </p>
 </div>
         </form>
