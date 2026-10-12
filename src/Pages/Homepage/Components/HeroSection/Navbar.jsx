@@ -4,62 +4,87 @@ import logo from "../../../../assets/image.png";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const menuItems = [
+    "Home",
+    "Our Story",
+    "Services",
+    "Products",
+    "Blog",
+    "Contact us",
+  ];
+
   return (
-    <>
-      <div className="fixed top-0 left-0 z-50 w-full ">
-        <div className="flex items-center justify-between shadow-2xl bg-white min-h-20 w-full p-3 ">
+    <div className="fixed top-0 left-0 z-50 w-full">
+      <nav className="relative flex min-h-20 w-full items-center justify-between gap-4 bg-white px-4 py-3 shadow-2xl sm:px-6 lg:px-8">
 
-          {/* Logo */}
-          <div>
-            <img src={logo} alt="logo" className="w-65" />
-          </div>
-
-          {/* Desktop Menu */}
-          <div className="hidden lg:block">
-            <ul className="flex gap-7 font-medium">
-              <li>Home</li>
-              <li>Our Story</li>
-              <li>Services</li>
-              <li>Products</li>
-              <li>Blog</li>
-              <li>Contact us</li>
-            </ul>
-          </div>
-
-          {/* Hamburger */}
-          <button
-            className="lg:hidden text-3xl"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            &#9776;
-          </button>
-
-          {/* Mobile Menu */}
-          {isOpen && (
-            <div className="absolute top-full left-0 w-full bg-white shadow-lg p-5 lg:hidden z-50">
-              <ul className="flex flex-col gap-5 font-medium">
-                <li>Home</li>
-                <li>Our Story</li>
-                <li>Services</li>
-                <li>Products</li>
-                <li>Blog</li>
-                <li>Contact us</li>
-              </ul>
-
-              <button className="bg-[#0776A3] rounded-2xl w-full mt-5 p-2 text-white font-bold">
-                Enquiry Now
-              </button>
-            </div>
-          )}
-
-          {/* Desktop Enquiry Button */}
-          <div className="hidden lg:block bg-[#0776A3] rounded-2xl px-4 py-2 text-white font-bold">
-            <button type="button">Enquiry Now</button>
-          </div>
-
+        {/* Logo */}
+        <div className="shrink-0">
+          <img
+            src={logo}
+            alt="Limra Sales and Services"
+            className="w-36 sm:w-44 lg:w-56 xl:w-64"
+          />
         </div>
-      </div>
-    </>
+
+        {/* Desktop Menu */}
+        <div className="hidden lg:block">
+          <ul className="flex items-center gap-4 xl:gap-7 font-medium text-sm xl:text-base">
+            {menuItems.map((item) => (
+              <li
+                key={item}
+                className="cursor-pointer whitespace-nowrap hover:text-[#0776A3]"
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Desktop Enquiry Button */}
+        <button
+          type="button"
+          className="hidden shrink-0 rounded-xl bg-[#0776A3] px-3 py-2 text-sm font-bold text-white hover:bg-[#124158] xl:block"
+        >
+          Enquiry Now
+        </button>
+
+        {/* Hamburger */}
+        <button
+          type="button"
+          aria-label="Toggle navigation menu"
+          aria-expanded={isOpen}
+          onClick={() => setIsOpen(!isOpen)}
+          className="shrink-0 text-3xl text-[#124158] lg:hidden"
+        >
+          &#9776;
+        </button>
+
+        {/* Mobile and Tablet Menu */}
+        {isOpen && (
+          <div className="absolute left-0 top-full z-50 w-full border-t bg-white p-5 shadow-lg lg:hidden">
+            <ul className="flex flex-col gap-4 font-medium">
+              {menuItems.map((item) => (
+                <li
+                  key={item}
+                  onClick={() => setIsOpen(false)}
+                  className="cursor-pointer py-1 hover:text-[#0776A3]"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+
+            <button
+              type="button"
+              onClick={() => setIsOpen(false)}
+              className="mt-5 w-full rounded-xl bg-[#0776A3] p-3 font-bold text-white hover:bg-[#124158]"
+            >
+              Enquiry Now
+            </button>
+          </div>
+        )}
+      </nav>
+    </div>
   );
 };
 
